@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./backend
+    container_name: app-template-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  frontend:
+    build: ./frontend
+    container_name: app-template-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
